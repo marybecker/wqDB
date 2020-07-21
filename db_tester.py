@@ -8,7 +8,7 @@ import json
 # ? is the delimiter used to prevent SQL injection
 #################################################################
 SQLselect = 'SELECT * FROM test.sites;'
-SQLinsert = 'INSERT INTO sites VALUES (?,?,?,?,?,?);'
+SQLinsert = 'INSERT INTO sites VALUES (?,?,?,?);'
 SQLinsertCol = 'INSERT INTO test.data (sometxt) VALUES (?);'
 SQLinsertColMulti = 'INSERT into test.data(sometxt) VALUES(?),(?),(?);'
 SQLdelete = 'DELETE FROM test WHERE test.id = ?;'
@@ -17,12 +17,12 @@ SQLjoin = 'SELECT test.id, test.value, data.sometxt FROM test.test INNER JOIN te
 
 V = ['f']
 res = {}
-with msc.MYSQL('localhost', 'test', 3306, 'test_user', 'test') as dbo:
-    res = dbo.query(SQLjoin)
+with msc.MYSQL('localhost', 'test', 3306, 'pyuser', 'test') as dbo:
+    res = dbo.query(SQLselect)
 
-# Manually open and close the client connection
-dbo = msc.MYSQL('localhost', 'test', 3306, 'test_user', 'test')
-dbo.conn.close()
+# Test out connections for admin only, nver do this!!!!!!!
+# dbo = msc.MYSQL('localhost', 'test', 3306, 'test_user', 'test')
+# dbo.conn.close()
 
 
 ############################################################################################
@@ -46,7 +46,7 @@ def readXlsx(file):
     return data
 
 
-test = readXlsx("sites_test.xlsx")
+test = readXlsx("sites_test2.xlsx")
 
 
 # function to get lat/long
@@ -63,8 +63,8 @@ def getLatLong(table):
 
 
 # insert data from csv into table one line at a time
-with msc.MYSQL('localhost', 'test', 3306, 'test_user', 'test') as dbo:
-    data = readXlsx("sites_test.xlsx")
+with msc.MYSQL('localhost', 'test', 3306, 'pyuser', 'test') as dbo:
+    data = readXlsx("sites_test2.xlsx")
     print(data)
     for i in range(len(data)):
         j = (data[i])

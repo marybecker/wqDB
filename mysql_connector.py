@@ -148,14 +148,19 @@ class MYSQL:
             self.conn.commit()
         except msc.errors.ProgrammingError as err1:
             print('run_SQL_V():ER6.SQL_Malformed Error: {}'.format(err1))
+            res['err1'] = str(err1)
         except msc.errors.DataError as err2:
             print('run_SQL_V():ER7.Data_Not_Matching_Template: {}'.format(err2))
+            res['err2'] = str(err2)
         except msc.errors.IntegrityError as err3:
             print('run_SQL_V():ER8.SQL_Constraint_Violation: {}'.format(err3))
+            res['err3'] = str(err3)
         except UnicodeDecodeError as err4:
             print('run_SQL_V():ER9.Unicode_Decoding_Error: {}'.format(err4))
             self.errors+='query():ER9.unicode decoding issues\n'
+            res['err4'] = str(err4)
         except Exception as err5:
             print('run_SQL_V():ER10.Unknown_Error: {}'.format(err5))
+            res['err5'] = str(err5)
             pass
         return res

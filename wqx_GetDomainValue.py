@@ -2,7 +2,7 @@ import requests
 import zipfile
 import io
 
-domain = ['Taxon','Characteristic']
+domain = ['MonitoringLocationType']
 uri = ('http://cdx.epa.gov/wqx/download/DomainValues/'+ domain[0] + '_CSV.zip')
 r = requests.get(uri)
 bytes = r.content

@@ -27,9 +27,11 @@ var tiles = L.tileLayer(basemap_url, basemap_attributes);
 
 map.addLayer(tiles);
 
+var sites="http://localhost:8080/sites";
+
 // AJAX request for GeoJSON data
-var S = $.getJSON("sites.geojson", function (sites) {
-            //console.log(sites);
+var S = $.getJSON(sites, function (sites) {
+            console.log(sites);
             L.geoJSON(sites, {
                 pointToLayer: function (feature, latlng) {
                     return L.circleMarker(latlng, geojsonMarkerOptions);
@@ -37,7 +39,7 @@ var S = $.getJSON("sites.geojson", function (sites) {
                 onEachFeature: function(feature,layer){
                   props= layer.feature.properties
                   console.log(props);
-                  layer.bindPopup(props["STA_SEQ"]+" "+props["StrName"])
+                  layer.bindPopup(props["sta_seq"])
 
                 }
             }).addTo(map);
