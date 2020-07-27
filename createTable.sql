@@ -17,13 +17,14 @@ create table awqx.stations(
     lastUpdateDate datetime,
     lastUpdateUser varchar (50),
     primary key (ylat,xlong),
-    foreign key (locationType) REFERENCES monitoringlocationtype(Name),
-    foreign key (horizCollectMethod) REFERENCES horizontalcollectionmethod(Name),
+    constraint locType foreign key (locationType) REFERENCES monitoringlocationtype(Name),
+    constraint horizCollectMeth foreign key (horizCollectMethod) REFERENCES horizontalcollectionmethod(Name),
     foreign key (horizRefDatum) REFERENCES horizontalreferencedatum(Name),
     foreign key (stateCd) REFERENCES state(Code),
     foreign key (munName) REFERENCES municipalities(Name),
     foreign key (subBasin) REFERENCES subbasin(SubBasin),
-    check (40.9 > ylat < 42.11)
+    constraint ylat_outOfBounds check (ylat >= 40.8 AND ylat < 42.3),
+    constraint xlong_outOfBounds check (xlong >= -73.8 AND xlong < -71.8)
 );
 
 
