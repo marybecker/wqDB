@@ -27,7 +27,7 @@ create table awqx.stations(
     constraint xlong_outOfBounds check (xlong >= -73.8 AND xlong < -71.8)
 );
 
-create table awqx.logErr(
+create table awqx.errlog(
 cmdType varchar(50) NOT NULL,
 tableType varchar(50) NOT NULL,
 fileNm varchar(50) NOT NULL,

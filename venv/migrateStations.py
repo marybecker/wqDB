@@ -9,7 +9,7 @@ def readXlsx(file,errFile):
         try:
             with xlrd.open_workbook(file) as f:
                 sheet = f.sheet_by_index(0)  # could also use sheet_by_name("Sheet1")
-                raw = [[sheet.cell_value(r, c) for c in range(sheet.ncols)[0:13]] for r in range(sheet.nrows)[1:]]
+                raw = [[sheet.cell_value(r, c) for c in range(sheet.ncols)] for r in range(sheet.nrows)[1:]]
             return raw
         except FileNotFoundError as e:
             print(e)
@@ -22,16 +22,8 @@ folder = 'Upload/'
 type = 'Stations/'
 fdir = os.listdir(ftp+folder+type)
 
-
-SQLinsert = 'INSERT INTO awqx.stations (staSeq,locationName, locationDescription, locationType, ylat, xlong, ' \
-            'sourceMapScale, horizCollectMethod, horizRefDatum, stateCd, munName, subBasin, adbSegID, ' \
-            'createUser, createDate)  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);'
+SQLinsert = 'INSERT INTO awqx.stations VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);'
 SQLerrLog = 'INSERT INTO awqx.errlog VALUES (?,?,?,?,?,?);'
-SQLselect = 'SELECT Max(staSeq) + 1 FROM awqx.stations;'
-
-
-with msc.MYSQL('localhost', 'test', 3306, 'pyuser', 'test') as dbo:
-    res = dbo.query(SQLselect)
 
 print('found %s files to process: %s' % (len(fdir), fdir))
 
@@ -52,8 +44,7 @@ try:
 
                 # Insert into the database line by line.  Append DB error if not caught by qc checks.
                 for i in range(len(raw)):
-                    autoN = dbo.query(SQLselect)
-                    ins = dbo.query(SQLinsert, list(autoN[0].values())+raw[i]+[insDate])
+                    ins = dbo.query(SQLinsert, raw[i])
                     if ins != {}:
                         print('error with file %s on row %s, err=%s' % (file, i, ins[sorted(ins)[0]]))
                         err = [folder[0:-1],type[0:-1],file,insDate,i,ins[sorted(ins)[0]]]
@@ -71,6 +62,3 @@ try:
                 f.write(s)
 except FileNotFoundError as e:
     print(e)
-
-
-
