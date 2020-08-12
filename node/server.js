@@ -23,10 +23,12 @@ app.get('/StationsMap/sites',function(req,res){
 		console.log(response);
 		var features = [];
 	  for (var i = 0; i<response.length; i++){
+		  var site = response[i].staSeq.toString();
 	    var point = {
 	      "type": "Feature",
 		  "properties": {"staseq": response[i].staSeq,"name":response[i].locationName,
-		  "descrip":response[i].locationDescription,"type":response[i].locationType},
+		  "descrip":response[i].locationDescription,"type":response[i].locationType,
+		  "siteID":site.concat('-',response[i].locationName),"munName":response[i].munName,"subBasin":response[i].subBasin},
 	      "geometry": {"type": "Point","coordinates":[response[i].xlong,response[i].ylat]}
 	    }
 	    features.push(point);

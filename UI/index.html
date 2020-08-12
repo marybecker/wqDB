@@ -17,24 +17,18 @@
         <div class='flex-parent flex-parent--column viewport-third h-full-ml hmax-full bg-white py18 px12'>
             <div class='flex-child flex-child--grow px12 py12 scroll-auto'>
                 <h1 class='txt-h1 mb6'>awqX Stations Map</h1>
-                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere
-                    consectetur est
-                    at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia
-                    bibendum
-                    nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus
-                    et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                <h2 class='txt-xl mt18 mb12'>subheading</h2>
-                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere
-                    consectetur est
-                    at lobortis.</p>
+                <p>Search or click to explore current sites in the database.  Click in a new location to get information
+                    needed to input a new site into the upload site template.
+                </p>
+                <div id = "newSiteInfo">
+                <h2 class='txt-xl mt18 mb12'>Info for Sites:</h2>
+                <p>Click in a new location to get info for a new site or select a current site.</p>
+                </div>
             </div>
             <footer class='px12 py12 bg-gray-faint txt-s'>
                 <ul>
-                    <li>Explore the raw
-                        <a class='link' href='data/kenya_education_2014.csv'>data</a>
-                    </li>
-                    <li>Map authored by
-                        <a class='link' href='https://www.github.com/marybecker'>Mary Becker</a>
+                    <li>Download all station
+                        <a class='link' href='data/stations.geojson'>data</a>
                     </li>
                 </ul>
             </footer>
@@ -48,14 +42,6 @@
 <div id='search' class="ui-autocomplete">
     <input id="autocomplete" placeholder="Search by Stream Name or Station ID">
   </div>
-<!-- ui slider -->
-<!-- <div id='search' class='relative bg-white'>
-    <div class='absolute flex-parent flex-parent--center-cross flex-parent--center-main w36 h36'>
-      <svg class='icon'><use xlink:href='#icon-search'></use></svg>
-    </div>
-    <input id='autocomplete' class='input pl36' placeholder='Search'>
-  </div> -->
-
 
 <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js"></script>
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
