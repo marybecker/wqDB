@@ -33,7 +33,7 @@ var stationsLayer = $.getJSON(stations, function(data) {
  // Initialize autocomplete with empty source.
  $( "#autocomplete" ).autocomplete();
 
-// load GeoJSON of CT Boundary
+// style for line data
 var linestyle = {
     color: "black",
     weight: 1,
@@ -49,13 +49,26 @@ function mapStations(data){
     };
 
     // Set style function that sets fill color property
+    // Set different color for recently added sites (created within past week)
     function style(feature) {
-        return {
-            fillColor: 'blue', 
-            fillOpacity: 0.3,  
-            opacity: 1,
-            color: '#ffffff'
-        };
+        createDate = feature.properties.createDate;
+        if (createDate < (Date.now()/1000) - 604800){
+            return {
+                fillColor: 'blue', 
+                fillOpacity: 0.3,  
+                opacity: 1,
+                color: '#ffffff'
+            };
+        }
+        else {
+            return {
+                fillColor: 'red', 
+                fillOpacity: 0.3,  
+                opacity: 1,
+                color: '#ffffff'
+            };
+        }
+        
     }
 
     var highlight = {

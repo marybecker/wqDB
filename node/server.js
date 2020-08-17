@@ -16,7 +16,7 @@ var config = {
 app.get('/StationsMap/sites',function(req,res){
 	var conn = mysql.createConnection(config);
 	conn.connect();
-	var SQL = 'SELECT * FROM stations';
+	var SQL = 'SELECT  staSeq,locationName, locationDescription, locationType, ylat, xlong, sourceMapScale, horizCollectMethod, horizRefDatum, stateCd, munName, subBasin, adbSegID, createUser, UNIX_TIMESTAMP(createDate) as createDate FROM awqx.stations;';
 	console.log(SQL);
 	conn.query(SQL,function(err,response,fields){
 		if(err){ throw err; }
@@ -28,7 +28,8 @@ app.get('/StationsMap/sites',function(req,res){
 	      "type": "Feature",
 		  "properties": {"staseq": response[i].staSeq,"name":response[i].locationName,
 		  "descrip":response[i].locationDescription,"type":response[i].locationType,
-		  "siteID":site.concat('-',response[i].locationName),"munName":response[i].munName,"subBasin":response[i].subBasin},
+		  "siteID":site.concat('-',response[i].locationName),"munName":response[i].munName,"subBasin":response[i].subBasin,
+		  "createDate":response[i].createDate},
 	      "geometry": {"type": "Point","coordinates":[response[i].xlong,response[i].ylat]}
 	    }
 	    features.push(point);
@@ -42,4 +43,4 @@ app.get('/StationsMap/sites',function(req,res){
 
 //listen on 8080
 //localhost:8080/sites
-app.listen(8080, () => console.log('Example app listening on port 8080!'))
+app.listen(8080, () => console.log('Listening on port 8080!'))

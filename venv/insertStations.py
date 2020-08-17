@@ -2,6 +2,27 @@ import mysql_connector as msc
 import xlrd
 from datetime import datetime
 import os
+import argparse
+
+des = """
+------------------------------------------------------------------------------------------
+Import Stations into Ambient Water Monitoring Data Exchange (wmdX) water quality database  
+Mary Becker - Last Updated 2020-08-16
+------------------------------------------------------------------------------------------
+Given input directory of excel template spreadsheets with new station information,
+automatically checks for constraints with the database schema and produces an
+error report for tuples that do not meet the constraints.  Tuples that do meet 
+requirements are inserted into the Stations table """
+
+parser = argparse.ArgumentParser(description=des.lstrip(" "),formatter_class=argparse.RawTextHelpFormatter)
+parser.add_argument('-i', '--in_dir', type=str, help='input directory of ftp\t[None]')
+args = parser.parse_args()
+
+#build args into params...
+if args.in_dir is not None:
+    in_dir = args.in_dir
+else:
+    raise IOError
 
 # function to read in xlsx file
 def readXlsx(file,errFile):
@@ -17,7 +38,8 @@ def readXlsx(file,errFile):
         errFile += [[file, 'Incorrect File Type']]
 
 # insert data from excel into table one line at a time.  generate an error rpt
-ftp = 'C:/Users/deepuser/Documents/testFTP/'
+ftp = in_dir
+#ftp = 'C:/Users/deepuser/Documents/testFTP/'
 folder = 'Upload/'
 type = 'Stations/'
 fdir = os.listdir(ftp+folder+type)
