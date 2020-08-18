@@ -17,7 +17,7 @@ def readXlsx(file,errFile):
         errFile += [[file, 'Incorrect File Type']]
 
 # insert data from excel into table one line at a time.  generate an error rpt
-ftp = 'C:/Users/deepuser/Documents/testFTP/'
+ftp = 'D:/wdExImport/'
 folder = 'Upload/'
 type = 'Stations/'
 fdir = os.listdir(ftp+folder+type)

@@ -1,8 +1,25 @@
 
-var hydro = L.esri.tiledMapLayer({url: "https://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroCached/MapServer"}),
-    topo = L.esri.tiledMapLayer({url: "https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer"});
+var hydro = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroCached/MapServer/tile/{z}/{y}/{x}',{
+    attribution: 'USGS The National Map: National Hydrography Dataset. Data refreshed March, 2020.',
+    maxZoom:16}),
+    topo = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}',{
+        attribution: 'USGS The National Map: National Boundaries Dataset, 3DEP Elevation Program, Geographic Names Information System, National Hydrography Dataset, National Land Cover Database, National Structures Dataset, and National Transportation Dataset; USGS Global Ecosystems; U.S. Census Bureau TIGER/Line data; USFS Road Data; Natural Earth Data; U.S. Department of State Humanitarian Information Unit; and NOAA National Centers for Environmental Information, U.S. Coastal Relief Model. Data refreshed May, 2020.USGS The National Map: National Topography Dataset. Data refreshed March, 2020.',
+        maxZoom:16
+    }),
+    usgsImg = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryTopo/MapServer/tile/{z}/{y}/{x}',{
+        attribution: 'USGS The National Map: Orthoimagery and US Topo. Data refreshed September, 2019.',
+        maxZoom:16}),
+    //hydro = L.esri.tiledMapLayer({url: "https://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroCached/MapServer",maxZoom:16}),
+    //topo = L.esri.tiledMapLayer({url: "https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer",maxZoom:16});
+    sat = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 22,
+        id: 'mapbox.satellite',
+        accessToken: 'pk.eyJ1IjoibWFyeS1iZWNrZXIiLCJhIjoiY2p3bTg0bDlqMDFkeTQzcDkxdjQ2Zm8yMSJ9._7mX0iT7OpPFGddTDO5XzQ'
+    })
+    
 
-var baseMaps = {"Hydro": hydro,"Topo": topo};
+var baseMaps = {"Hydro": hydro,"Topo": topo,"Satellite":sat,"USGS Imagery":usgsImg};
 
 var map = L.map('map', {zoomSnap: .1,center: [41.67598909594535, -72.62512207031251],zoom: 9,layers: [hydro]});
 
@@ -17,7 +34,7 @@ map.getPane('basinPane').style.zIndex = 300;
 var arr = [];
 var arr1 = [];
 
-var stations="http://localhost:8080/StationsMap/sites";
+var stations="http://SDC-EPAFiling:8080/StationsMap/sites";
 
 var stationsLayer = $.getJSON(stations, function(data) {
     console.log(data);

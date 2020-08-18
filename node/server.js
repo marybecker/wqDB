@@ -6,9 +6,9 @@ var path = require('path')
 app.use('/StationsMap', express.static(path.join(__dirname,'/app')));
 
 var config = {
-	host     : 'localhost',
+	host     : 'SDC-EPAFiling',
 	database : 'awqx',
-	user     : 'nodeUser',
+	user     : 'pyuser',
 	password : 'test'
 };
 
