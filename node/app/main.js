@@ -16,10 +16,13 @@ var hydro = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/US
         maxZoom: 22,
         id: 'mapbox.satellite',
         accessToken: 'pk.eyJ1IjoibWFyeS1iZWNrZXIiLCJhIjoiY2p3bTg0bDlqMDFkeTQzcDkxdjQ2Zm8yMSJ9._7mX0iT7OpPFGddTDO5XzQ'
-    })
+    }),
+    Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+    });
     
 
-var baseMaps = {"Hydro": hydro,"Topo": topo,"Satellite":sat,"USGS Imagery":usgsImg};
+var baseMaps = {"NHD Hydro": hydro,"USGS Topo": topo,"MapBox Satellite":sat,"USGS Imagery":usgsImg,"Esri World Topo":Esri_WorldTopoMap};
 
 var map = L.map('map', {zoomSnap: .1,center: [41.67598909594535, -72.62512207031251],zoom: 9,layers: [hydro]});
 
