@@ -38,6 +38,7 @@ var arr = [];
 var arr1 = [];
 
 var stations="http://SDC-EPAFiling:8080/StationsMap/sites";
+//var stations="http://localhost:8080/StationsMap/sites";
 
 var stationsLayer = $.getJSON(stations, function(data) {
     console.log(data);

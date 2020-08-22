@@ -12,6 +12,13 @@ var config = {
 	password : 'test'
 };
 
+// var config = {
+// 	host     : 'localhost',
+// 	database : 'awqx',
+// 	user     : 'nodeUser',
+// 	password : 'test'
+// };
+
 //all sites in the DB table.......
 app.get('/StationsMap/sites',function(req,res){
 	var conn = mysql.createConnection(config);
