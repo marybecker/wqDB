@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>awX Stations Map</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <link rel='icon' href='images/waterDB.svg' type='image/x-icon'/>
+    <link rel='icon' href='images/waterDB_pb.svg' type='image/x-icon'/>
     <link href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
           integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -16,10 +16,8 @@
 <div class='flex-parent viewport-full relative scroll-hidden'>
     <div class='flex-child w-full w300-ml absolute static-ml left bottom'>
         <div class='flex-parent flex-parent--column viewport-third h-full-ml hmax-full bg-white py18 px12'>
-            <div class='flex-child flex-child--grow px12 py12 scroll-auto'>
-                <img src="images/waterDB_full.svg" alt="ambient water data eXchange" 
-                width="200"></img>
-                <br>
+            <div class='flex-child flex-child--grow px12 py12 scroll-auto'>   
+                <a href="https://sdc-filing:80/awx-portal"><img src="images/waterDB_pb.svg" alt="ambient water data eXchange" width="50"></img> </a>
                 <h1 class='txt-h1 mb6'>Stations Map</h1>
                 <p>Search or click to explore current sites in the database.  Click in a new location to get information
                     needed to input a new site into the upload site template.
@@ -32,9 +30,9 @@
             <footer class='px12 py12 bg-gray-faint txt-s'>
                 <ul>
                     <li>Download all station data
-                    </br><a class='link' href=''>feature coming soon</a>
+                    </br><a class='link' href=''>feature coming soon</a> 
                     </li>
-                </ul>
+                </ul> 
             </footer>
         </div>
     </div>
