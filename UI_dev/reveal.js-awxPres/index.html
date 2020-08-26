@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>awx upload</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/moon.css" id="theme">
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img src="images/waterDB_inverse_logo.svg" alt="Map to ftp">
+				</section>
+				<section>
+					<h2>Beta ver. - Upload Stations Workflow</h2>
+					<pre><code data-trim data-noescape>
+					# function to read in xlsx file
+					def readXlsx(file,errFile):
+					if file.endswith(".xlsm") or file.endswith(".xlsx"):
+						try:
+							with xlrd.open_workbook(file) as f:
+							sheet = f.sheet_by_index(0)  
+							raw = [[sheet.cell_value(r, c) 
+							for c in range(sheet.ncols)[0:13]] 
+							for r in range(sheet.nrows)[1:]]
+							return raw
+						except FileNotFoundError as e:
+							print(e)
+					else:
+						errFile += [[file, 'Incorrect File Type']]
+					</code></pre>
+				</section>
+				<section>
+					<h3>Map to <a href="ftp://spc-epafiling/Upload">ftp://spc-epafiling/Upload</a></h3>
+					<img src="images/mapToftp.png" alt="Map to ftp">
+				</section>
+				<section>
+					<h3>Check for existing sites</h3>
+					Access the stations web service
+					<img src="images/StationsMap.png" alt="Stations Map">
+				</section>
+				<section>
+					<h3>Get and Fill in Excel Upload Template</h3>
+					<img src="images/ExcelTemplate.png" alt="Template">
+				</section>
+				<section>
+					<h3>Place template in <a href="ftp://spc-epafiling/Upload/Stations">ftp://spc-epafiling/Upload/Stations</a></h3>
+					<img src="images/StationsFTP.png" alt="Stations FTP">
+				</section>
+				<section>
+					<h3>Check for errors report and map</h3>
+					<img src="images/NewStation.png" alt="New Station">
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
