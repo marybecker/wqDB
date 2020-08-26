@@ -15,27 +15,11 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>
-					<img src="images/waterDB_inverse_logo.svg" alt="Map to ftp">
-				</section>
-				<section>
-					<h2>Beta ver. - Upload Stations Workflow</h2>
-					<pre><code data-trim data-noescape>
-					# function to read in xlsx file
-					def readXlsx(file,errFile):
-					if file.endswith(".xlsm") or file.endswith(".xlsx"):
-						try:
-							with xlrd.open_workbook(file) as f:
-							sheet = f.sheet_by_index(0)  
-							raw = [[sheet.cell_value(r, c) 
-							for c in range(sheet.ncols)[0:13]] 
-							for r in range(sheet.nrows)[1:]]
-							return raw
-						except FileNotFoundError as e:
-							print(e)
-					else:
-						errFile += [[file, 'Incorrect File Type']]
-					</code></pre>
+				<section >
+					  <div class="r-hstack">
+						<img src="images/waterDB_inverse_logo.svg" alt="awX">
+						<h2>Beta ver. - Upload Stations Workflow</h2>
+					  </div>
 				</section>
 				<section>
 					<h3>Map to <a href="ftp://spc-epafiling/Upload">ftp://spc-epafiling/Upload</a></h3>
@@ -51,7 +35,8 @@
 					<img src="images/ExcelTemplate.png" alt="Template">
 				</section>
 				<section>
-					<h3>Place template in <a href="ftp://spc-epafiling/Upload/Stations">ftp://spc-epafiling/Upload/Stations</a></h3>
+					<h3>Place template in </h3>
+					<a href="ftp://spc-epafiling/Upload/Stations">ftp://spc-epafiling/Upload/Stations</a>
 					<img src="images/StationsFTP.png" alt="Stations FTP">
 				</section>
 				<section>
