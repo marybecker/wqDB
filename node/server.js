@@ -5,19 +5,19 @@ var app = express()
 var path = require('path')
 app.use('/StationsMap', express.static(path.join(__dirname,'/app')));
 
-var config = {
-	host     : 'SDC-EPAFiling',
-	database : 'awqx',
-	user     : 'pyuser',
-	password : 'test'
-};
-
 // var config = {
-// 	host     : 'localhost',
+// 	host     : 'SDC-EPAFiling',
 // 	database : 'awqx',
-// 	user     : 'nodeUser',
+// 	user     : 'pyuser',
 // 	password : 'test'
 // };
+
+var config = {
+	host     : 'localhost',
+	database : 'awqx',
+	user     : 'nodeUser',
+	password : 'test'
+};
 
 //all sites in the DB table.......
 app.get('/StationsMap/sites',function(req,res){

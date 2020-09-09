@@ -37,8 +37,8 @@ map.getPane('basinPane').style.zIndex = 300;
 var arr = [];
 var arr1 = [];
 
-var stations="http://SDC-EPAFiling:8080/StationsMap/sites";
-//var stations="http://localhost:8080/StationsMap/sites";
+//var stations="http://SDC-EPAFiling:8080/StationsMap/sites";
+var stations="http://localhost:8080/StationsMap/sites";
 
 var stationsLayer = $.getJSON(stations, function(data) {
     console.log(data);
@@ -227,3 +227,15 @@ map.on('click',function(e){
         // document.getElementById("LatLng").innerHTML = '<b>Lat: </b>'+ e.latlng.lat +'</br>'+'<b>Long: </b>'+e.latlng.lng;
     };
 })
+
+function zoomToLatLong() {
+        var lat = document.getElementById("lat").value;
+        var lng = document.getElementById("lng").value;
+        console.log([lat,lng]);
+    if (lat == "" || lng == ""){
+        map.setView([41.67598909594535, -72.62512207031251],9);
+    } else {
+        map.flyTo(new L.LatLng(lat, lng),16);
+    }
+        
+}   
