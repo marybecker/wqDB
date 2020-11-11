@@ -65,8 +65,8 @@ def wqx_startimport(user_id,user_key,uri,fileID):
     headers = {'X-UserID': userid, 'X-Stamp': timestamp, 'X-Signature': encrypted,'Content-Type': contenttype}
     r = requests.get(uri, headers=headers)
 
-user_id = ''
-user_key = ''
+user_id = 'marybecker'
+user_key = 'A1aU+4gesjKaCXDg5p8AJtV4edozjJ+hojcJyjXDqSyMkwwn6pIy4LUwxs/YtyEGyYGQnUgVhvBYdZJ9WX7QBA=='
 #uri = 'https://cdx.epa.gov/WQXWeb/api/Upload/Projects.csv' #uri for post request to upload file type to the server
 #uri = 'https://cdx.epa.gov/WQXWeb/api/MonitoringLocations?OrganizationIdentifiersCsv=CT_DEP01_WQX'
 uri = 'https://cdx.epa.gov/WQXWeb/api/StartImport?importConfigurationId=6840&fileId=2917cf1d-8da8-4266-86c3-0fbeaef51c29&fileType=CSV&newOrExistingData=1&uponCompletion=0&uponCompletionCondition=0&worksheetsToImport=1&ignoreFirstRowOfFile=true'
@@ -84,7 +84,7 @@ timestamp = datetime.datetime.utcnow()
 timestamp_mdy = timestamp.strftime("%m/%d/%Y").lstrip("0").replace(" 0", " ")
 timestamp_hms = timestamp.strftime("%I:%M:%S %p")
 timestamp = timestamp_mdy+" "+timestamp_hms
-str_key = '' # add secret key created on WQX
+str_key = 'A1aU+4gesjKaCXDg5p8AJtV4edozjJ+hojcJyjXDqSyMkwwn6pIy4LUwxs/YtyEGyYGQnUgVhvBYdZJ9WX7QBA==' # add secret key created on WQX
 print('::::::KEY::::::\n'+str_key)
 private_key = bytearray(base64.b64decode(str_key)) #assume base64 str
 #uri = 'https://cdx.epa.gov/WQXWeb/api/GetStatus?datasetId=62748' #Check on dataset example
