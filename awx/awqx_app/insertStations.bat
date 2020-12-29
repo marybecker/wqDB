@@ -1,0 +1,1 @@
+C:\Users\beckerm\Anaconda3\python C:\Users\beckerm\Documents\wqDB\venv\insertStations.py --in_dir D:\wdExImport\

@@ -1,0 +1,7 @@
+ProjectsTest110120.xlsx,0,['macroInvertABM', 'Ambient Macroinvertebrate Sampling', 'Ambient Macroinvertebrate Sampling', 1.0, 'EPA'],1062 (23000): Duplicate entry 'macroInvertABM' for key 'projects.PRIMARY'
+ProjectsTest110120.xlsx,1,['benthicAlgABM', 'Ambient Benthic Algae River Sampling', 'Ambient Benthic Algae River Sampling', 1.0, 'EPA'],1062 (23000): Duplicate entry 'benthicAlgABM' for key 'projects.PRIMARY'
+ProjectsTest110120.xlsx,2,['lakesABM', 'Ambient Lakes Sampling', 'Ambient Lakes Sampling', 0.0, ''],1062 (23000): Duplicate entry 'lakesABM' for key 'projects.PRIMARY'
+ProjectsTest110120.xlsx,3,['lakesNLA', 'National Lakes Assessment', 'Additional data collected by CT DEEP Monitoring and Assessment Program during the National Lakes Assessment', 1.0, 'EPA'],1062 (23000): Duplicate entry 'lakesNLA' for key 'projects.PRIMARY'
+ProjectsTest110120.xlsx,4,['fishABM', 'Ambient Fish Sampling - Monitoring', 'Ambient Fish Sampling - Monitoring', 1.0, 'EPA'],1062 (23000): Duplicate entry 'fishABM' for key 'projects.PRIMARY'
+ProjectsTest110120.xlsx,5,['fishIFD', 'Ambient Fish Sampling - Fisheries', 'Ambient Fish Sampling - Fisheries', 0.0, ''],1062 (23000): Duplicate entry 'fishIFD' for key 'projects.PRIMARY'
+ProjectsTest110120.xlsx,6,['LIS', 'Ambient Long Island Sound Sampling', 'Ambient Long Island Sound Sampling', 1.0, 'EPA'],1062 (23000): Duplicate entry 'LIS' for key 'projects.PRIMARY'

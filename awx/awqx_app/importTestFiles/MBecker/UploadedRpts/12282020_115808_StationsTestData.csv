@@ -1,0 +1,23 @@
+staSeq,locationName,locationDescription,locationType,ylat,xlong,sourceMapScale,horizCollectMethod,horizRefDatum,stateCd,munName,subBasin,adbSegID,createDate,createUser,lastUpdateDate,lastUpdateUser
+14392,Pequabuck River,adjacent USGS Gage upstream of Central Avenue,River/Stream,41.6738,-72.8977,24000,Interpolation-Map,NAD83,CT,BRISTOL,4315,CT4315-00_02,3/2/1999 0:00,Hoffman,3/12/2010 0:00,Beauchene
+15274,Sargent River,At Sperry Rd,River/Stream,41.38399999999999,-72.988,24000,Interpolation-Map,NAD83,CT,WOODBRIDGE,5303,CT5303-00_01,9/22/2003 0:00,Beauchene,3/12/2010 0:00,Beauchene
+15294,Norwalk River,downstream Rte 33 behind Red Rooster Pub,River/Stream,41.1954,-73.4321,24000,Interpolation-Map,NAD83,CT,WILTON,7300,CT7300-00_02,9/22/2003 0:00,Beauchene,10/10/2019 13:39,AarrestadA
+16649,FARMILL RIVER,100 M US Jct of Yutaka Trail and Manhasset Rd,River/Stream,41.2633,-73.1047,24000,Unknown,NAD83,CT,STRATFORD,6025,Needs,1/12/2009 0:00,Beauchene,3/12/2010 0:00,Beauchene
+16788,KEELER BROOK,Above Flax Hill Rd,River/Stream,41.092,-73.4397,24000,Unknown,NAD83,CT,NORWALK,7401,Needs,1/12/2009 0:00,Beauchene,1/3/2014 12:58,RutaM
+16873,MOUNT HOPE RIVER,US of rte 89,River/Stream,41.8814,-72.1639,24000,Unknown,NAD83,CT,ASHFORD,3206,CT3206-00_02,1/12/2009 0:00,Beauchene,3/12/2010 0:00,Beauchene
+17324,Latimer Brook,behind St Mathias Church,River/Stream,41.4073,-72.2217,24000,Interpolation-Map,NAD83,CT,EAST LYME,2202,needs,11/20/2009 0:00,Beauchene,3/12/2010 0:00,Beauchene
+18447,West River,between Laurel ridge and alma drive at bend close to route 77,River/Stream,41.33116,-72.7066,0,Interpolation-Satellite,WGS84,CT,GUILFORD,5110,5110,1/28/2013 14:24,BeaucheneM,5/30/2018 10:55,LallyMe
+18921,"Shepaug River, Unnamed Tributary to",100 m above mouth,River/Stream Perennial,41.60567,-73.33967,0,Interpolation-Satellite,WGS84,CT,WASHINGTON,6700,,9/18/2015 10:30,HumphreysM,9/18/2017 15:35,LallyMe
+19931,Charters Brook,Adjacent Shenipsit Lake Road,River/Stream,41.903265999999995,-72.40556,0,Interpolation-Satellite,WGS84,CT,TOLLAND,4501,,9/5/2017 13:28,AarrestadA,9/5/2017 13:28,AarrestadA
+19933,Thompson Brook,"Behind Mystic Valley Hunt Club, above two impounded ponds",River/Stream,41.40193,-72.04427,0,Interpolation-Satellite,WGS84,CT,LEDYARD,2107,,9/13/2017 16:05,AarrestadA,9/13/2017 16:33,AarrestadA
+19938,Mint Brook,Adjacent the Airline Trail and Rt 207,River/Stream,41.640570000000004,-72.33888,0,Interpolation-Satellite,WGS84,CT,HEBRON,4701,,9/19/2017 13:33,AarrestadA,5/22/2019 15:37,LallyMe
+19940,Gunn Brook,Adjacent State Hwy 45 in Cornwall,River/Stream,41.800009,-73.37902,0,Interpolation-Satellite,WGS84,CT,CORNWALL,6000,,9/20/2017 15:08,AarrestadA,9/20/2017 15:09,AarrestadA
+19955,NNT to Saugatuck River,US of State HWY 53 (Redding Rd),River/Stream,41.299709,-73.39965699999999,0,Interpolation-Satellite,WGS84,CT,REDDING,7200,,9/27/2017 15:06,AarrestadA,9/27/2017 15:29,AarrestadA
+19956,Limekiln Brook,Adjacent to Plumtrees Road,River/Stream,41.391945,-73.390853,0,Interpolation-Satellite,WGS84,CT,BETHEL,6606,,9/27/2017 15:10,AarrestadA,9/27/2017 15:29,AarrestadA
+19957,Merryall Brook,~160 M US of Indian Trail Road,River/Stream,41.651682,-73.44668,0,Interpolation-Satellite,WGS84,CT,NEW MILFORD,6501,,9/27/2017 15:16,AarrestadA,9/27/2017 15:30,AarrestadA
+20122,Deming Brook,850m upstream Under Mountain Road,River/Stream,41.970555,-73.294686,0,Interpolation-Satellite,WGS84,CT,CANAAN,6202,,10/16/2018 16:31,AarrestadA,10/16/2018 16:31,AarrestadA
+20123,Labonte Brook,Adjacent Babcock Road,River/Stream,41.90359,-72.3077,0,Interpolation-Satellite,WGS84,CT,WILLINGTON,3100,,10/22/2018 14:16,AarrestadA,10/22/2018 14:18,AarrestadA
+20124,NNT to Sucker Brook,Adj Rt 263,River/Stream,41.916858000000005,-73.115359,0,Interpolation-Satellite,WGS84,CT,WINCHESTER,4302,,10/22/2018 14:23,AarrestadA,10/30/2018 9:39,AarrestadA
+20127,Pequabuck River,In between Rt 72 and Waterbury Rd,River/Stream,41.670147,-72.969139,0,Interpolation-Satellite,WGS84,CT,BRISTOL,4315,,10/30/2018 9:44,AarrestadA,10/30/2018 9:56,AarrestadA
+20128,Susquetonscut Brook,Upstream Murphy Road,River/Stream,41.580635,-72.139504,0,Interpolation-Satellite,WGS84,CT,FRANKLIN,3907,,10/30/2018 9:57,AarrestadA,10/30/2018 10:04,AarrestadA
+20129,Ocain Brook,Adj Rt 63,River/Stream,41.899369,-73.264893,0,Interpolation-Satellite,WGS84,CT,GOSHEN,6200,,10/30/2018 10:07,AarrestadA,10/30/2018 10:08,AarrestadA

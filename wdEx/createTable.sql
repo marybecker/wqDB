@@ -1,3 +1,7 @@
+
+-- CREATE STATIONS TABLE
+
+drop table if exists awqx.stations;
 create table awqx.stations(
 	staSeq	int(10) NOT NULL UNIQUE,
 	locationName	varchar (255) NOT NULL,
@@ -23,20 +27,27 @@ create table awqx.stations(
     foreign key (stateCd) REFERENCES state(Code),
     foreign key (munName) REFERENCES municipalities(Name),
     foreign key (subBasin) REFERENCES subbasin(SubBasin),
+    foreign key (createUser) REFERENCES contacts (ContactID),
+    foreign key (lastUpdateUser) REFERENCES contacts (ContactID),
     constraint ylat_outOfBounds check (ylat >= 40.8 AND ylat < 42.3),
     constraint xlong_outOfBounds check (xlong >= -73.8 AND xlong < -71.8)
 );
 
+-- CREATE ERROR LOG
+
 create table awqx.errlog(
-cmdType varchar(50) NOT NULL,
-tableType varchar(50) NOT NULL,
-fileNm varchar(50) NOT NULL,
-attemptDate datetime NOT NULL,
-fileRow int NOT NULL,
-errMsg varchar(200),
-primary key (fileNm, fileRow, attemptDate)
+	cmdType varchar(50) NOT NULL,
+	tableType varchar(50) NOT NULL,
+	fileNm varchar(50) NOT NULL,
+	attemptDate datetime NOT NULL,
+	fileRow int NOT NULL,
+	errMsg varchar(200),
+	primary key (fileNm, fileRow, attemptDate)
 );
 
+-- CREATE PROJECTS TABLE
+
+drop table if exists awqx.projects;
 create table awqx.projects(
 	ProjectIdentifier varchar(50) NOT NULL,
 	ProjectName varchar(512) NOT NULL,
@@ -45,59 +56,99 @@ create table awqx.projects(
 	QAPPApprovedIndicator boolean,
 	QAPPApprovalAgencyName varchar (50),
     QAPPlink varchar(500),
-    primary key (ProjectIdentifier)
+    createDate datetime NOT NULL,
+    createUser varchar (50) NOT NULL,
+    lastUpdateDate datetime,
+    lastUpdateUser varchar (50),
+    primary key (ProjectIdentifier),
+    foreign key (SamplingDesignTypeCode) REFERENCES samplingdesigntype (Code),
+    foreign key (createUser) REFERENCES contacts (ContactID),
+    foreign key (lastUpdateUser) REFERENCES contacts (ContactID)
 );
+
+-- CREATE ACTIVITIES TABLES
 
 drop table if exists awqx.activity;
 create table awqx.activity(
-ProjectIdentifier varchar(50) NOT NULL,
-staSeq int(10) NOT NULL,
-ActivityIdentifier varchar(55) NOT NULL,
-ActivityTypeCode varchar(70) NOT NULL,
-ActivityMediaName varchar(20) NOT NULL,
-ActivityMediaSubdivisionName varchar(60),
-ActivityStartDate date NOT NULL,
-ActivityTime time NOT NULL,
-ActivityTimeZoneCodetimezone varchar(4),
-SampleCollectionMethodIdentifier varchar(35),
-SampleCollectionEquipmentName varchar(60),
-SampleCollectionEquipmentCommentText varchar (4000),
-LaboratoryName varchar(60),
-ActivityConductingOrganizationText varchar(120),
-ActivityCommentText varchar(4000),
-ActContactLead varchar(50) NOT NULL,
-ActContact1 varchar(50),
-ActContact2 varchar(50),
-ActContact3 varchar(50),
-ActContact4 varchar(50),
-primary key (staSeq,ActivityStartDate,ActivityTime,ActivityTypeCode,SampleCollectionMethodIdentifier),
-foreign key (ActivityTypeCode) REFERENCES activitytype(Code),
-foreign key (ActivityMediaName) REFERENCES activitymedia(Name),
-foreign key (ActivityMediaSubdivisionName) REFERENCES activitymediasubdivision(Name),
-foreign key (ActivityTimeZoneCodetimezone) REFERENCES timezone(Code),
-foreign key (SampleCollectionMethodIdentifier) REFERENCES samplecollectionmethod(ID),
-foreign key (SampleCollectionEquipmentName) REFERENCES samplecollectionequipment(Name),
-foreign key (ActContactLead) REFERENCES contacts(ContactID),
-foreign key (ActContact1) REFERENCES contacts(ContactID),
-foreign key (ActContact2) REFERENCES contacts(ContactID),
-foreign key (ActContact3) REFERENCES contacts(ContactID),
-foreign key (ActContact4) REFERENCES contacts(ContactID)
+	ProjectIdentifier varchar(50) NOT NULL,
+	staSeq int NOT NULL,
+	ActivityIdentifier varchar(55) NOT NULL,
+	ActivityTypeCode varchar(70) NOT NULL,
+	ActivityMediaName varchar(20) NOT NULL,
+	ActivityMediaSubdivisionName varchar(60),
+	ActivityStartDate date NOT NULL,
+	ActivityTime time NOT NULL,
+	ActivityTimeZoneCodetimezone varchar(4),
+	SampleCollectionMethodIdentifier varchar(35),
+	SampleCollectionEquipmentName varchar(60),
+	SampleCollectionEquipmentCommentText varchar (4000),
+	LaboratoryName varchar(60),
+	ActivityConductingOrganizationText varchar(120),
+	ActivityCommentText varchar(4000),
+	ActContactLead varchar(50) NOT NULL,
+	ActFieldCrew varchar(4000),
+	createDate datetime NOT NULL,
+	createUser varchar (50) NOT NULL,
+	lastUpdateDate datetime,
+	lastUpdateUser varchar (50),
+	primary key (staSeq,ActivityStartDate,ActivityTime,ActivityTypeCode,SampleCollectionMethodIdentifier),
+    foreign key (ProjectIdentifier) REFERENCES projects (ProjectIdentifier),
+    foreign key (staSeq) REFERENCES stations (staSeq),
+	foreign key (ActivityTypeCode) REFERENCES activitytype(Code),
+	foreign key (ActivityMediaName) REFERENCES activitymedia(Name),
+	foreign key (ActivityMediaSubdivisionName) REFERENCES activitymediasubdivision(Name),
+	foreign key (ActivityTimeZoneCodetimezone) REFERENCES timezone(Code),
+	foreign key (SampleCollectionMethodIdentifier) REFERENCES samplecollectionmethod(ID),
+	foreign key (SampleCollectionEquipmentName) REFERENCES samplecollectionequipment(Name),
+	foreign key (ActContactLead) REFERENCES contacts(ContactID),
+	foreign key (createUser) REFERENCES contacts (ContactID),
+	foreign key (lastUpdateUser) REFERENCES contacts (ContactID)
 );
 
 drop table if exists awqx.activitychem;
 create table awqx.activitychem(
-ActivityIdentifier varchar(55) NOT NULL,
-SamplePreparationMethodIdentifier varchar(35),
-ActivityRelativeDepthName varchar(30),
-ActivityDepthMeasureValue decimal(5,2),
-ActivityDepthMeasureUnitCode varchar(12),
-InstreamLocation varchar(30),
-LabAccession varchar(50) NOT NULL,
-LaboratoryName varchar(60) NOT NULL,
-primary key(ActivityIdentifier),
-foreign key (ActivityRelativeDepthName) REFERENCES activityrelativedepth(Name),
-foreign key (ActivityDepthMeasureUnitCode) REFERENCES measurementunit(Code),
-foreign key (InstreamLocation) REFERENCES instreamlocation(Name)
+	ProjectIdentifier varchar(50) NOT NULL,
+	staSeq int NOT NULL,
+	ActivityIdentifier varchar(55) NOT NULL,
+	ActivityTypeCode varchar(70) NOT NULL,
+	ActivityMediaName varchar(20) NOT NULL,
+	ActivityMediaSubdivisionName varchar(60),
+	ActivityStartDate date NOT NULL,
+	ActivityTime time NOT NULL,
+	ActivityTimeZoneCodetimezone varchar(4),
+	SampleCollectionMethodIdentifier varchar(35),
+	SampleCollectionEquipmentName varchar(60),
+	SampleCollectionEquipmentCommentText varchar (4000),
+	ActivityConductingOrganizationText varchar(120),
+	ActivityCommentText varchar(4000),
+	ActContactLead varchar(50) NOT NULL,
+	ActFieldCrew varchar(4000),
+    SamplePreparationMethodIdentifier varchar(35),
+	ActivityRelativeDepthName varchar(30),
+	ActivityDepthMeasureValue decimal(5,2),
+	ActivityDepthMeasureUnitCode varchar(12),
+	InstreamLocation INT,
+	LabAccession varchar(50) NOT NULL,
+	LaboratoryName varchar(60) NOT NULL,
+	createDate datetime NOT NULL,
+	createUser varchar (50) NOT NULL,
+	lastUpdateDate datetime,
+	lastUpdateUser varchar (50),
+	primary key (staSeq,ActivityStartDate,ActivityTime,ActivityTypeCode,SampleCollectionMethodIdentifier),
+    foreign key (ProjectIdentifier) REFERENCES projects (ProjectIdentifier),
+    foreign key (staSeq) REFERENCES stations (staSeq),
+	foreign key (ActivityTypeCode) REFERENCES activitytype(Code),
+	foreign key (ActivityMediaName) REFERENCES activitymedia(Name),
+	foreign key (ActivityMediaSubdivisionName) REFERENCES activitymediasubdivision(Name),
+	foreign key (ActivityTimeZoneCodetimezone) REFERENCES timezone(Code),
+	foreign key (SampleCollectionMethodIdentifier) REFERENCES samplecollectionmethod(ID),
+	foreign key (SampleCollectionEquipmentName) REFERENCES samplecollectionequipment(Name),
+	foreign key (ActContactLead) REFERENCES contacts(ContactID),
+	foreign key (createUser) REFERENCES contacts (ContactID),
+	foreign key (lastUpdateUser) REFERENCES contacts (ContactID),
+	foreign key (ActivityRelativeDepthName) REFERENCES activityrelativedepth(Name),
+	foreign key (ActivityDepthMeasureUnitCode) REFERENCES measurementunit(Code),
+	foreign key (InstreamLocation) REFERENCES instreamlocation(N)
 );
 
 drop table if exists awqx.activitybio;
@@ -135,6 +186,8 @@ foreign key (ReachWidthMeasureUnitCode) REFERENCES measurementunit(Code),
 foreign key (NetMeshSizeMeasureUnitCode) REFERENCES measurementunit(Code)
 );
 
+-- CREATE RESULTS TABLES
+
 drop table if exists awqx.results;
 create table awqx.results(
 ActivityIdentifier varchar(55) NOT NULL,
@@ -171,14 +224,21 @@ ResultAnalyticalMethodContext varchar(120),
 DetectionQuantitationTypeName varchar(35),
 DetectionQuantitationLimitMeasureValue varchar(60),
 DetectionLimitMeasureUnitCode varchar(12),
+createDate datetime NOT NULL,
+createUser varchar (50) NOT NULL,
+lastUpdateDate datetime,
+lastUpdateUser varchar (50),
 primary key (ActivityIdentifier, CharacteristicName, ResultAnalyticalMethodIdentifier),
 foreign key (CharacteristicName) REFERENCES characteristic(Name),
+foreign key (ResultMeasureUnitCode) REFERENCES measurementunit(Code),
 foreign key (ResultValueTypeName) REFERENCES resultvaluetype(Name),
 foreign key (ResultStatusIdentifier) REFERENCES resultstatus(Name),
 foreign key (MethodSpeciationName) REFERENCES methodspeciation(Name),
 foreign key (ResultDetectionConditionText) REFERENCES resultdetectioncondition(Name),
 foreign key (ResultSampleFractionText) REFERENCES samplefraction(Name),
-foreign key (ResultAnalyticalMethodContext) REFERENCES analyticalmethodcontext(Code)
+foreign key (ResultAnalyticalMethodContext) REFERENCES analyticalmethodcontext(Code),
+foreign key (DetectionQuantitationTypeName) REFERENCES quantitationlimittype(Name),
+foreign key (DetectionQuantitationLimitMeasureValue) REFERENCES measurementunit(Code)
 );
 
 drop table if exists awqx.resultsmeter;

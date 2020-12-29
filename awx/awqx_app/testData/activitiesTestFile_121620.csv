@@ -1,0 +1,25 @@
+﻿ProjectIdentifier,staSeq,ActivityTypeCode,ActivityStartDate,ActivityTime,SampleCollectionEquipmentCommentText,SamplePreparationMethodIdentifier,ActivityRelativeDepthName,ActivityDepthMeasureValue,ActivityDepthMeasureUnitCode,InstreamLocation,LabAccession,LaboratoryName,ActivityConductingOrganizationText,ActivityCommentText,ActContactLead,ActFieldCrew
+benthicAlgABM,19931,Sample-Routine,2019-06-18,10:21:00,Plastic Bottle,,Surface,0.1,m,3,190219-001,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,20123,Sample-Routine,2019-06-18,11:45:00,Plastic Bottle,,Surface,0.1,m,3,190219-002,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,16873,Sample-Routine,2019-06-18,13:00:00,Plastic Bottle,,Surface,0.1,m,3,190219-003,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,16873,Quality Control Sample-Field Replicate,2019-06-18,13:00:00,Plastic Bottle,,Surface,0.1,m,3,190219-004,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,19933,Sample-Routine,2019-06-19,10:30:00,Plastic Bottle,,Surface,0.1,m,3,190219-005,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,19938,Sample-Routine,2019-06-19,14:40:00,Plastic Bottle,,Surface,0.1,m,3,190219-008,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,17324,Sample-Routine,2019-06-19,12:00:00,Plastic Bottle,,Surface,0.1,m,3,190219-006,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,20128,Sample-Routine,2019-06-19,13:15:00,Plastic Bottle,,Surface,0.1,m,3,190219-007,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,16788,Sample-Routine,2019-07-05,13:00:00,Plastic Bottle,,Surface,0.1,m,3,190219-009,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,15294,Sample-Routine,2019-07-05,13:00:00,Plastic Bottle,,Surface,0.1,m,3,190219-010,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,19955,Sample-Routine,2019-07-05,14:00:00,Plastic Bottle,,Surface,0.1,m,3,190219-011,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,19956,Sample-Routine,2019-07-05,14:45:00,Plastic Bottle,,Surface,0.1,m,3,190219-012,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,20127,Sample-Routine,2019-07-19,07:45:00,Plastic Bottle,,Surface,0.1,m,3,190273-001,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,14392,Sample-Routine,2019-07-19,08:45:00,Plastic Bottle,,Surface,0.1,m,3,190273-002,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,14392,Quality Control Sample-Field Replicate,2019-07-19,08:45:00,Plastic Bottle,,Surface,0.1,m,3,190273-003,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,15274,Sample-Routine,2019-07-23,10:45:00,Plastic Bottle,,Surface,0.1,m,3,190273-004,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,18447,Sample-Routine,2019-07-23,12:20:00,Plastic Bottle,,Surface,0.1,m,3,190273-005,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,20124,Sample-Routine,2019-07-24,15:45:00,Plastic Bottle,,Surface,0.1,m,3,190273-008,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,20122,Sample-Routine,2019-07-24,12:00:00,Plastic Bottle,,Surface,0.1,m,3,190273-006,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,20129,Sample-Routine,2019-07-24,14:15:00,Plastic Bottle,,Surface,0.1,m,3,190273-007,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,19940,Sample-Routine,2019-07-26,10:15:00,Plastic Bottle,,Surface,0.1,m,3,190273-009,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,19957,Sample-Routine,2019-07-26,11:30:00,Plastic Bottle,,Surface,0.1,m,3,190273-010,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,16649,Sample-Routine,2019-07-26,15:30:00,Plastic Bottle,,Surface,0.1,m,3,190273-012,CESE,ctdeepWplrAbm,,WTokarz,JCorso
+benthicAlgABM,18921,Sample-Routine,2019-07-26,13:15:00,Plastic Bottle,,Surface,0.1,m,3,190273-011,CESE,ctdeepWplrAbm,,WTokarz,JCorso
