@@ -70,16 +70,23 @@ act_results = lab_data.merge(act_df, right_on='LabAccession', left_on='lab_acces
 
 #Add needed column to dataframe and then update values based on another column
 act_results['resultvaluetype'] = 'Actual'
+act_results['Rslt_status'] = 'Preliminary'
 act_results['DetectionQuantitationTypeName'] = 'Method Detection Level'
 act_results['DetectionQuantitationTypeNameUOM'] = act_results['UOM'] # Have Chris add this column
 act_results.loc[act_results['method_number'] == 'Calculation' , 'resultvaluetype'] = 'Calculated'
-act_results['methodSpeciationName'] = ''
+act_results['methodSpeciationName'] = 'None'
 act_results.loc[act_results['value'] =='ND', 'result_detection_condition'] = 'Not Detected'
 act_results.loc[act_results['value'] =='ND', 'value'] = ''
 act_results.loc[act_results['result_detection_condition'] == '<', 'result_detection_condition'] \
     = 'Present Below Quantification Limit'
 act_results.loc[act_results['result_detection_condition'] == '>', 'result_detection_condition'] \
     = 'Present Above Quantification Limit'
+act_results.loc[act_results['sample_fraction'].isnull(), 'sample_fraction'] = 'None'
+act_results['analysis_start_date'].dt.strftime('%Y-%m-%d')
+act_results.loc[act_results['method_context'] == 'EPA', 'method_context'] = 'USEPA'
+
+
+# Subset results just to get one characteristic for testing
 alk_results = act_results[act_results['characteristic_name'] == 'Alkalinity']
 
 # Order results in order needed for upload

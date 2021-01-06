@@ -215,8 +215,8 @@ ResultValueTypeName varchar(20) NOT NULL,
 AnalysisStartDate date,
 ResultStatusIdentifier varchar(12) NOT NULL,
 ResultComment varchar(4000), 
-MethodSpeciationName varchar(20),
-ResultDetectionConditionText varchar(35),
+MethodSpeciationName varchar(20) NULL,
+ResultDetectionConditionText varchar(35) NULL,
 ResultSampleFractionText varchar(25),
 ResultAnalyticalMethodIdentifier varchar(35),
 ResultAnalyticalMethodName varchar(250), 
@@ -234,11 +234,11 @@ foreign key (ResultMeasureUnitCode) REFERENCES measurementunit(Code),
 foreign key (ResultValueTypeName) REFERENCES resultvaluetype(Name),
 foreign key (ResultStatusIdentifier) REFERENCES resultstatus(Name),
 foreign key (MethodSpeciationName) REFERENCES methodspeciation(Name),
-foreign key (ResultDetectionConditionText) REFERENCES resultdetectioncondition(Name),
+-- foreign key (ResultDetectionConditionText) REFERENCES resultdetectioncondition(Name),
 foreign key (ResultSampleFractionText) REFERENCES samplefraction(Name),
 foreign key (ResultAnalyticalMethodContext) REFERENCES analyticalmethodcontext(Code),
 foreign key (DetectionQuantitationTypeName) REFERENCES quantitationlimittype(Name),
-foreign key (DetectionQuantitationLimitMeasureValue) REFERENCES measurementunit(Code)
+foreign key (DetectionLimitMeasureUnitCode) REFERENCES measurementunit(Code)
 );
 
 drop table if exists awqx.resultsmeter;

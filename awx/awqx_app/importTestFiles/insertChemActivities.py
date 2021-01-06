@@ -13,7 +13,7 @@ Mary Becker - Last Updated 2020-12-28
 Given input directory of excel template spreadsheets with new station information,
 automatically checks for constraints with the database schema and produces an
 error report for tuples that do not meet the constraints.  Tuples that do meet 
-requirements are inserted into the Stations table """
+requirements are inserted into the Chem Activities table """
 
 parser = argparse.ArgumentParser(description=des.lstrip(" "), formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument('-i', '--in_dir', type=str, help='input directory of ftp\t[None]')

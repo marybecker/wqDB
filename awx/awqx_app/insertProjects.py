@@ -6,7 +6,7 @@ import argparse
 
 des = """
 ------------------------------------------------------------------------------------------
-Import Projects into Ambient Water Monitoring Data Exchange (wmdX) water quality database  
+Import Projects into Ambient Water Data Exchange (awx) water quality database  
 Mary Becker - Last Updated 2020-11-30
 ------------------------------------------------------------------------------------------
 Given input directory of excel template spreadsheets with new station information,
